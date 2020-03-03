@@ -3,6 +3,11 @@
     . /etc/profile
   fi
 
+# Git Bash completion
+  if [ -r /usr/local/etc/profile.d/bash_completion.sh ]; then
+    . /usr/local/etc/profile.d/bash_completion.sh
+  fi
+
 # Configure the shell environment
   source ~/.colors.bash
   export PS1="$BGreen>>lucas@$BBlue\w $BPurple\$(__git_ps1 '(%s)')$BBlack\$ $Color_Off"
@@ -16,14 +21,15 @@
   export LS_COLORS="di=1;34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 # Source git specific bash scripts
+  #[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh
   #source ~/.git-completion.bash  # installed with git from homebrew at /usr/local/etc/bash_completion.d/git-completion.bash
   #source ~/.git-prompt.sh        # installed with git from homebrew at /usr/local/etc/bash_completion.d/git-prompt.sh
   export GIT_PS1_SHOWDIRTYSTATE=yes
   export GIT_PS1_SHOWSTASHSTATE=yes
 
 # Aliases and Functions
-  #alias ls='ls -G' 			      #<-- Mac only
-  alias ls='ls --color'		              #<-- change color here
+  alias ls='ls -G' 			      #<-- Mac only
+  #alias ls='ls --color'		              #<-- change color here
   alias la='ls -a'
   alias ll='ls -lht'
   alias ~="cd ~"                              # ~:            Go Home
