@@ -8,9 +8,12 @@
     . /usr/local/etc/profile.d/bash_completion.sh
   fi
 
-# Configure the shell environment
+# Configure the shell environmenti
+  git_branch() {
+    git branch 2>/dev/null | grep '^*' | colrm 1 2
+  }
   source ~/.colors.bash
-  export PS1="$BGreen>>lucas@$BBlue\w $BPurple\$(__git_ps1 '(%s)')$BBlack\$ $Color_Off"
+  export PS1="$BGreen>>lucas@$BBlue\w $BPurple(\$(git_branch '(%s)'))$BBlack\$ $Color_Off"
   export EDITOR=/usr/bin/vim
   export BLOCKSIZE=1k # Set default blocksize for ls, df, du, from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
 
