@@ -1,2 +1,2 @@
-# bash_stuff
+# bash-stuff
 My preferred settings
